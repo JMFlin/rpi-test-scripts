@@ -11,11 +11,13 @@ led_pins = [2, 3, 4, 17]
 
 try:
     for i in led_pins:
+        #GPIO.setmode(GPIO.BCM)
         GPIO.setup(i, GPIO.OUT)
-        GPIO.output(i, GPIO.HIGH)
+        GPIO.output(i, GPIO.LOW)
         print("Led", i, "is on")
         sleep(3)
-        GPIO.output(i, GPIO.LOW)
+        GPIO.output(i, GPIO.HIGH)
+        #GPIO.cleanup()
         sleep(3)
 except KeyboardInterrupt:
     pass
